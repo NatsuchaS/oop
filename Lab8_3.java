@@ -1,5 +1,3 @@
-package Lab8;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -7,7 +5,7 @@ public class Lab8_3 extends JFrame implements ActionListener {
     JLabel textLabel;
     JTextField textField;
     JButton saveBtn, clearBtn, showBtn;
-    JButton addBtn, subBtn, mulBtn, divBtn,sqrtBtn,percent,PMBtn;
+    JButton addBtn, subBtn, mulBtn, divBtn,sqrtBtn,percent,PMBtn,toHex;
     Container container;
     NumberNew obj;
 
@@ -76,6 +74,11 @@ public Lab8_3()
     PMBtn.addActionListener( this);
     container.add(   PMBtn  );
 
+    toHex= new JButton(" 10 -> 16 ");
+    toHex.setFont(new Font("Courier New",Font.BOLD,20));
+    toHex.addActionListener( this);
+    container.add(   toHex  );
+
     setSize(340,120);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
@@ -91,7 +94,7 @@ public void actionPerformed( ActionEvent event ) {
     if (event.getSource() == saveBtn) {
         if (textField.getText().isEmpty()){}
         else{
-        int value = Integer.parseInt(textField.getText());
+        double value =    Double.parseDouble(textField.getText());
         obj.setValue(value);
         textField.setText("");}
     }
@@ -106,51 +109,59 @@ public void actionPerformed( ActionEvent event ) {
     else if (event.getSource() == addBtn) {
         if (textField.getText().isEmpty()){}
             else{
-        int value = Integer.parseInt(textField.getText());
+        double value =   Double.parseDouble(textField.getText());
         obj.add(value);
         textField.setText(obj.toString());}
     }
     else if (event.getSource() == subBtn) {
         if (textField.getText().isEmpty()){}
             else{
-        int value = Integer.parseInt(textField.getText());
+        double value =   Double.parseDouble(textField.getText());
         obj.subtract(value);
         textField.setText(obj.toString());}
     }
     else if (event.getSource() == mulBtn) {
         
         if (textField.getText().isEmpty()){}
-        else{int value = Integer.parseInt(textField.getText());
+        else{
+        double value =   Double.parseDouble(textField.getText());
         obj.multiply(value);
         textField.setText(obj.toString());}
     }
     else if (event.getSource() == divBtn) {
         if (textField.getText().isEmpty()){}
         else{
-        int value = Integer.parseInt(textField.getText());
+        double value =   Double.parseDouble(textField.getText());
         obj.divide(value);
         textField.setText(obj.toString());}}
+            
     else if (event.getSource() == PMBtn) {
         if (textField.getText().isEmpty()){}
             else{
-        int value = Integer.parseInt(textField.getText());
+        double value = Double.parseDouble(textField.getText());
         obj.divPM(value);
         textField.setText(obj.toString());}}
     else if (event.getSource() == sqrtBtn) {
         if (textField.getText().isEmpty()){}
             else{
-        int value = Integer.parseInt(textField.getText());
+        double value = Double.parseDouble(textField.getText());
         obj.divsqrt(value);
         textField.setText(obj.toString());}}
-        else if (event.getSource() == percent) {
-            if (textField.getText().isEmpty()){}
-            else{
-            int value = Integer.parseInt(textField.getText());
-            obj.divper(value);
-            textField.setText(obj.toString());}}
+    else if (event.getSource() == percent) {
+        if (textField.getText().isEmpty()){}
+        else{
+        double value = Double.parseDouble(textField.getText());
+        obj.divper(value);
+        textField.setText(obj.toString());}}
+    else if (event.getSource() == toHex) {
+        if (textField.getText().isEmpty()){}
+        else{
+            textField.setText(obj.divHex());
             
-    
+         }}
+        
+        
+
 
 }
-
-}
+    }

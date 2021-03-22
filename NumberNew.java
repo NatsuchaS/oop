@@ -1,5 +1,4 @@
-package Lab8;
-
+import java.math.BigInteger;
 public class NumberNew {
     private double number;
     public NumberNew() {
@@ -39,7 +38,13 @@ public class NumberNew {
     }
     public void divper(double n) {
         setValue(n*100/getValue());
-        
-}
-        
     }
+    public String divHex() {
+        return((Double.toHexString(getValue())));
+    }
+    
+
+        
+      
+    }
+    
