@@ -39,12 +39,18 @@ public class NumberNew {
     public void divper(double n) {
         setValue(n*100/getValue());
     }
-    public String divHex() {
-        return((Double.toHexString(getValue())));
+    public String divHex(double n) {
+        setValue(n);
+        int value = (int)(n);
+        return ( Integer.toHexString(value));
+    }
+    public void divpower(double n) {
+        setValue(Math.pow(10, n));
+    }
     }
     
 
         
       
-    }
+    
     

@@ -5,7 +5,7 @@ public class Lab8_3 extends JFrame implements ActionListener {
     JLabel textLabel;
     JTextField textField;
     JButton saveBtn, clearBtn, showBtn;
-    JButton addBtn, subBtn, mulBtn, divBtn,sqrtBtn,percent,PMBtn,toHex;
+    JButton addBtn, subBtn, mulBtn, divBtn,sqrtBtn,percent,PMBtn,toHex,power;
     Container container;
     NumberNew obj;
 
@@ -79,7 +79,12 @@ public Lab8_3()
     toHex.addActionListener( this);
     container.add(   toHex  );
 
-    setSize(340,120);
+    power= new JButton(" 10^x ");
+    power.setFont(new Font("Courier New",Font.BOLD,20));
+    power.addActionListener( this);
+    container.add(   power  );
+
+    setSize(400,250);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
 }
@@ -156,9 +161,18 @@ public void actionPerformed( ActionEvent event ) {
     else if (event.getSource() == toHex) {
         if (textField.getText().isEmpty()){}
         else{
-            textField.setText(obj.divHex());
-            
-         }}
+            double value = Double.parseDouble(textField.getText());
+            textField.setText(obj.divHex(value));}}
+    else if (event.getSource() == power) {
+        if (textField.getText().isEmpty()){}
+        else{
+        double value = Double.parseDouble(textField.getText());
+        obj.divpower(value);
+        textField.setText(obj.toString());}}            
+
+
+
+        
         
         
 
